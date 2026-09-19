@@ -1,0 +1,21 @@
+@use "../utilities/mixins" as *;
+@use "../utilities/variables" as *;
+
+.boton-troll:hover{
+    padding: 15px 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: $color-letras;
+  background-color: $color-pseudo;
+  border: none;
+  border-radius: $bordes-radio;
+  cursor: pointer;
+  position: absolute; 
+  transition: all 0.2s ease; 
+  box-shadow: 0 4px 15px $color-pseudo;
+}
+
+.boton-troll:active{
+    background-color: $color-pseudo;
+    border: 5px solid;
+}

@@ -1,0 +1,50 @@
+@use "../utilities/mixins" as *;
+@use "../utilities/variables" as *;
+
+.carrusel img{
+    height:150px;
+    border: $bordes;
+}
+
+.imagenes{
+    img{
+        height: 600px;
+    }
+    }
+.servicio{
+    height: auto;
+}
+.nuestros-servicios{
+    img{
+        height: 360px;
+    }
+}
+
+.mapa img:hover{
+    transition: 2s;
+    border: 3px solid $color-pseudo;
+    height: 400px;
+}
+
+.flechas ::marker{
+    content: "➡️";
+}
+
+.efecto:hover{
+    transition: 3s;
+    box-shadow: 4px 4px 60px 0px $color-pseudo;
+}
+
+.casilleros{
+    @include displays(column,null,center);
+    gap: 10px;
+}
+
+.mensaje{
+    height: 100px;
+}
+
+.Comunicate{
+    @include displays(row,space-around, center);
+    border: $bordes;  
+}

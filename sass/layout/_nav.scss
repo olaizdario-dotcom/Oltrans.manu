@@ -1,0 +1,37 @@
+@use "../utilities/mixins" as *;
+@use "../utilities/variables" as *;
+
+main{
+    color: $color-letras;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+
+     p{
+            font-size: 20px;
+
+        }
+}
+
+.main-sobre-nosotros{
+
+     section{
+        color: $color-letras;
+        align-items: center;
+        text-align: center;
+     }     
+}
+
+.main-proyectos{
+    
+    height: 800px;
+    font-size: 20px;
+    text-align: center;
+    
+}
+
+.main-contacto{
+    height: 500px;
+    
+  
+}

@@ -1,0 +1,8 @@
+/*------Mixin------*/
+
+@mixin displays ($direction,$justyfy,$align){
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justyfy;
+    align-items: $align;
+}
