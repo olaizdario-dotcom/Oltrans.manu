@@ -1,6 +1,23 @@
 @use "../utilities/mixins" as *;
 @use "../utilities/variables" as *;
 
+
+.inicio{
+    background-image:url(../imagenes/camion.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size:cover;
+    height: 450px;  
+}
+
+.destinos{
+    list-style-position: inside;
+}
+.destinos ::marker{
+    content: "🚛";
+}
+
 .carrusel img{
     height:150px;
     border: $bordes;
