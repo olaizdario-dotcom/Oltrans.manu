@@ -4,8 +4,8 @@
   margin: 0%;
   box-sizing: border-box;
   max-width: 100vw;
+  perspective: 1000px;
 }
-
 
 body {
   background-color: #000000;
@@ -15,24 +15,20 @@ body::selection {
   background-color: #1aaf1a;
 }
 
-.inicio {
-  background-image: url(../imagenes/camion.jpg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: fixed;
-  background-size: cover;
-  height: 450px;
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+    color: aliceblue;
+  }
+  50% {
+    background-position: 100% 50%;
+    color: black;
+  }
+  100% {
+    background-position: 0% 50%;
+    color: aliceblue;
+  }
 }
-
-.destinos {
-  list-style-position: inside;
-}
-
-.destinos ::marker {
-  content: "🚛";
-}
-
-
 header {
   background-color: #000000;
   font-size: 10px;
@@ -67,6 +63,11 @@ header img {
   font-size: 15px;
   color: #989398;
 }
+.navegador a button {
+  background: linear-gradient(270deg, #ff7e5f, #feb47b, #6a11cb, #ff7e5f);
+  background-size: 600% 600%;
+  animation: botonbuscador 8s ease infinite;
+}
 
 main {
   color: #989398;
@@ -91,7 +92,7 @@ main p {
 }
 
 .main-contacto {
-  height: 500px;
+  height: 550px;
 }
 
 footer {
@@ -141,8 +142,7 @@ footer ul li {
     height: 500px;
   }
   .main-proyectos {
-    display: grid;
-    grid-template-rows: 1fr 1fr;
+    perspective: 1000px;
     gap: 30px;
   }
   .main-proyectos section {
@@ -185,6 +185,10 @@ footer ul li {
     width: 600px;
   }
 }
+.botonbuscador {
+  background-color: aqua;
+}
+
 .boton-troll:hover {
   padding: 15px 30px;
   font-size: 1.2rem;
@@ -202,6 +206,33 @@ footer ul li {
 .boton-troll:active {
   background-color: #1aaf1a;
   border: 5px solid;
+}
+
+.buscado {
+  color: black;
+  background: linear-gradient(270deg, #1aaf1a, #989398, #000000);
+  background-size: 600%;
+  animation: gradientMove 8s ease infinite;
+}
+
+.inicio {
+  background-image: url(../imagenes/camion.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 450px;
+}
+
+.destinos ::marker {
+  content: "🚛";
+}
+
+.destinos:hover {
+  transform: translateZ(20px) scale(2);
+  padding: 50px;
+  transition: 0.7s ease-out;
+  text-shadow: 5px 3px 2px #1aaf1a;
 }
 
 .carrusel img {
@@ -231,7 +262,30 @@ footer ul li {
   content: "➡️";
 }
 
-.efecto:hover {
+.articulo3 {
+  transform-style: preserve-3d;
+}
+
+.articulo3 h2 {
+  transform: translateZ(5px);
+}
+
+.articulo3:hover {
+  transform: rotatey(10deg) scale(0.8);
+  transition: 3s;
+  box-shadow: 4px 4px 60px 0px #1aaf1a;
+}
+
+.articulo4 {
+  transform-style: preserve-3d;
+}
+
+.articulo4 h2 {
+  transform: translateZ(5px);
+}
+
+.articulo4:hover {
+  transform: rotatey(-10deg) scale(0.8);
   transition: 3s;
   box-shadow: 4px 4px 60px 0px #1aaf1a;
 }

@@ -1,5 +1,6 @@
 @use "../utilities/mixins" as *;
 @use "../utilities/variables" as *;
+@use "../utilities/keyframe.scss" as *;
 
 header{
     background-color:$color-fondo;
@@ -26,13 +27,19 @@ header{
     }
      }
     .navegador{
-        
         ul{
         list-style: none;
         }
         a{
         font-size: 15px;
         color: $color-letras;
-
+        button{
+        background: linear-gradient(270deg, #ff7e5f, #feb47b, #6a11cb, #ff7e5f);
+        background-size: 600% 600%;
+        animation: botonbuscador 8s ease infinite;
     }
+    }
+  
 }
+
+

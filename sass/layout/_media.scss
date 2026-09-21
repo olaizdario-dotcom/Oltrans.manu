@@ -40,9 +40,7 @@
 
 }
 .main-proyectos{
-
-    display: grid;
-    grid-template-rows: 1fr 1fr;
+    perspective: 1000px;
     gap: 30px;
      section{
         width: 80vw;
@@ -62,7 +60,9 @@
     background-position: center;
     background-size: cover;
     color: $letras-media ;
+
 }
+
 
 .articulo4{
     color: $letras-media;
@@ -88,4 +88,8 @@
 .mensaje{
     width: 600px;
 }
+}
+
+.botonbuscador{
+    background-color: aqua;
 }

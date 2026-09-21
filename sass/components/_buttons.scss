@@ -19,3 +19,10 @@
     background-color: $color-pseudo;
     border: 5px solid;
 }
+
+.buscado{
+  color: black;
+  background: linear-gradient(270deg, $color-pseudo,$color-letras,$color-fondo);
+  background-size: 600% ;
+  animation: gradientMove 8s ease infinite;
+}
