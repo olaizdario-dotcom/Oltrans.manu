@@ -1,0 +1,107 @@
+@use "../utilities/mixins" as *;
+@use "../utilities/variables" as *;
+
+
+.inicio{
+    background-image:url(../imagenes/camion.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size:cover;
+    height: 450px;  
+}
+
+
+
+.destinos ::marker{
+    content: "🚛";
+}
+.destinos:hover{
+    transform: translateZ(20px) scale(2) ;
+    padding:50px;
+    transition: 0.7s ease-out;
+    text-shadow: 5px 3px 2px $color-pseudo; 
+    
+}
+
+.carrusel img{
+    height:150px;
+    border: $bordes;
+}
+
+.imagenes{
+    img{
+        height: 600px;
+    }
+    }
+.servicio{
+    height: auto;
+}
+
+.nuestros-servicios{
+    img{
+        height: 360px;
+    }
+}
+
+.mapa img:hover{
+    transition: 2s;
+    border: 3px solid $color-pseudo;
+    height: 400px;
+}
+
+.flechas ::marker{
+    content: "➡️";
+}
+
+.articulo3{
+    transform-style: preserve-3d;
+}
+
+.articulo3 h2{
+    transform: translateZ(5px);
+}
+
+.articulo3:hover{
+    transform: rotatey(10deg) scale(0.80);
+    transition: 3s;
+    box-shadow: 4px 4px 60px 0px $color-pseudo;
+}
+
+.articulo4{
+    transform-style: preserve-3d;
+}
+
+.articulo4 h2{
+    transform: translateZ(5px);
+    
+}
+
+.articulo4:hover{
+    transform: rotatey(-10deg) scale(0.80);
+    transition: 3s;
+    box-shadow: 4px 4px 60px 0px $color-pseudo;
+}
+
+
+.casilleros{
+    @include displays(column,null,center);
+    gap: 10px;
+}
+
+.mensaje{
+    height: 100px;
+}
+
+.Comunicate{
+    @include displays(row,space-around, center);
+    border: $bordes;  
+}
+
+.carusel1 img{
+    @include tamañoimg(300px,200px) 
+}
+
+.carusel2 img{
+    @include tamañoimg(300px,200px) 
+}

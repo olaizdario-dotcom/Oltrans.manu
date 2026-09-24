@@ -1,0 +1,10 @@
+@use "../utilities/variables" as *;
+
+
+body{
+    background-color: $color-fondo;
+}
+
+body::selection{
+    background-color: $color-pseudo;
+}

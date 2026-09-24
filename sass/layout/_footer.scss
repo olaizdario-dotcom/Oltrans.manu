@@ -1,0 +1,17 @@
+@use "../utilities/mixins" as *;
+@use "../utilities/variables" as *;
+
+footer{
+    background-color: $color-fondo;
+    font-family: $fuente-letra;
+    font-weight: 300;
+    font-style: normal;
+    color: $color-letras;
+    border: $bordes;
+    text-align: center;
+    ul{
+        li{
+            list-style: none;
+        }
+    }
+}

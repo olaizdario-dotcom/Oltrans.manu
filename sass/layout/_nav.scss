@@ -1,0 +1,37 @@
+@use "../utilities/mixins" as *;
+@use "../utilities/variables" as *;
+
+main{
+    color: $color-letras;
+    font-family: $fuente-letra;
+    font-weight: 400;
+    font-style: normal;
+    height: auto;
+
+     p{
+            font-size: 20px;
+
+        }
+}
+
+.main-sobre-nosotros{
+
+     section{
+        color: $color-letras;
+        align-items: center;
+        text-align: center;
+     }     
+}
+
+.main-proyectos{
+    
+    font-size: 20px;
+    text-align: center;
+    
+}
+
+.main-contacto{
+    height: 550px;
+    
+  
+}
