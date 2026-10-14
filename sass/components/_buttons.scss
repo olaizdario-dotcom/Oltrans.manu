@@ -1,29 +1,32 @@
-@use "../utilities/mixins" as *;
 @use "../utilities/variables" as *;
 
-.boton-troll:hover{
-    padding: 15px 30px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: $color-letras;
-  background-color: $color-pseudo;
-  border: none;
-  border-radius: $bordes-radio;
-  cursor: pointer;
-  position: absolute; 
-  transition: all 0.2s ease; 
-  box-shadow: 0 4px 15px $color-pseudo;
+
+.boton-troll{
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.boton-troll:hover,
+.boton-troll:focus-visible{
+    transform: scale(1.08);
+    box-shadow: 0 4px 15px $color-pseudo;
 }
 
 .boton-troll:active{
-    background-color: $color-pseudo;
-    border: 5px solid;
+    transform: scale(0.97);
 }
 
-.buscado{
-  color: black;
-  background: linear-gradient(270deg, $color-pseudo,$color-letras,$color-fondo);
-  background-size: 600% ;
-  animation: gradientMove 8s ease infinite;
+.btn-outline-success{
+  --bs-btn-color: #{$color-pseudo};
+  --bs-btn-border-color: #{$color-pseudo};
+  --bs-btn-border-width: 2px;
+  --bs-btn-hover-color: #{$letras-media};
+  --bs-btn-hover-bg: #{$color-pseudo};
+  --bs-btn-hover-border-color: #{$color-pseudo};
+  --bs-btn-active-color: #{$letras-media};
+  --bs-btn-active-bg: #{$color-pseudo};
+  --bs-btn-active-border-color: #{$color-pseudo};
+  --bs-btn-focus-shadow-rgb: 26, 175, 26;
+  font-family: $fuente-letra;
+  font-size: 1.2rem;
+  letter-spacing: 0.06em;
 }
-

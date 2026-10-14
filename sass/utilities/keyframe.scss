@@ -1,5 +1,8 @@
-@keyframes gradientMove {
-  0%   { background-position: 0% 50%; color: aliceblue; }
-  50%  { background-position: 100% 50%;color: black}
-  100% { background-position: 0% 50%; color: aliceblue; }
+@keyframes carretera {
+  to { background-position: 16px 0; }
+}
+
+@keyframes logoEntrada {
+  from { opacity: 0; transform: translateX(-60px); }
+  to   { opacity: 1; transform: none; }
 }

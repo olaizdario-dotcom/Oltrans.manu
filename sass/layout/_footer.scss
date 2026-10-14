@@ -1,17 +1,43 @@
-@use "../utilities/mixins" as *;
 @use "../utilities/variables" as *;
 
 footer{
     background-color: $color-fondo;
-    font-family: $fuente-letra;
-    font-weight: 300;
+    font-family: $fuente-texto;
+    font-size: 0.95rem;
+    font-weight: 400;
     font-style: normal;
     color: $color-letras;
-    border: $bordes;
     text-align: center;
     ul{
         li{
             list-style: none;
         }
     }
+    a{
+        color: $color-letras;
+        text-decoration: none;
+        transition: color 0.2s ease;
+    }
+    a:hover,
+    a:focus-visible{
+        color: $color-pseudo;
+    }
+    h3{
+        font-family: $fuente-letra;
+        font-weight: 400;
+        font-size: 1.4rem;
+        color: $color-claro;
+        letter-spacing: 0.04em;
+    }
+}
+
+
+footer::before{
+    content: "";
+    display: block;
+    height: 3px;
+    margin-inline: calc(var(--bs-gutter-x) * -1);
+    margin-bottom: 1rem;
+    background: repeating-linear-gradient(90deg, $color-letras 0 28px, transparent 28px 44px);
+    opacity: 0.55;
 }

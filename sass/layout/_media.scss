@@ -1,68 +1,66 @@
 @use "../utilities/mixins" as *;
 @use "../utilities/variables" as *;
 
+
 @media (min-width: 768px) {
 
+    .inicio{
+        min-height: 450px;
+        h1{
+            align-items: start;
+        }
+    }
 
-    %articulo3{   
-    height: 300px;
-    text-align: left;
-    border-radius: $bordes-radio;
-    background-image: url(../imagenes/fondo.izq.png);
-    background-position: 750px;
-    background-size: cover;
-    color: $letras-media ;
-
-}
-
-
-.articulo4{
-    @extend %articulo3;
-    color: $letras-media;
-    background-image: url(../imagenes/fondo-dere.png);
-    background-position: 1150px;
-    background-size: cover;
-}
-
-   
-
-
-.carusel1 img{
-    width: 500px;
-}
-
-.carusel2 img{
-    height: 200px;
-    width: 150px;
-}
-}
-
-@media (min-width: 1024px) { 
-
-    .carusel1{
-        height: 300px;
-        img{image-rendering: optimizeQuality;}
+    %tarjeta-proyecto{
+        --titulo: #{$letras-media};
+        text-align: left;
+        border-radius: $bordes-radio;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        color: $letras-media;
+        min-height: 220px;
     }
 
     .articulo3{
-    height: 300px;
-    text-align: left;
-    border-radius: $bordes-radio;
-    background-image: url(../imagenes/fondo.izq.png);
-    background-position: center;
-    background-size: cover;
-    color: $letras-media ;
+        @extend %tarjeta-proyecto;
+        background-image: url(../imagenes/fondo-izq.png);
+    }
 
+    .articulo4{
+        @extend %tarjeta-proyecto;
+        background-image: url(../imagenes/fondo-dere.png);
+    }
+
+    .carusel1 img,
+    .carusel2 img{
+        height: 280px;
+    }
+
+    .footer-info{
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start;
+    }
 }
 
+@media (min-width: 1024px) {
 
-.articulo4{
-    color: $letras-media;
-    height: 300px;
-    background-image: url(../imagenes/fondo-dere.png);
-    background-position: center;
-    background-size: cover;
+    .inicio{
+        min-height: 500px;
+        background-position: center;
+        h1{
+            align-items: center;
+        }
+    }
+
+    .articulo3,
+    .articulo4{
+        min-height: 300px;
+    }
+
+    .carusel1 img,
+    .carusel2 img{
+        height: 320px;
+    }
 }
-}
-
-

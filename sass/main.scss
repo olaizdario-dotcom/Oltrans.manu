@@ -2,18 +2,11 @@
 @use "./base/tipografia";
 
 @use "./layout/header";
-@use "./layout/nav";
+@use "./layout/main";
 @use "./layout/footer";
-@use "./layout/media";
 
 @use "./components/buttons";
 @use "./components/cards";
 
-@use "./utilities/mixins";
-@use "./utilities/variables";
-@use "./utilities/keyframe.scss"
 
-
-
-
-
+@use "./layout/media";

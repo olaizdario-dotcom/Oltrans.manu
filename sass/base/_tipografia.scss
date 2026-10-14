@@ -1,10 +1,46 @@
 @use "../utilities/variables" as *;
 
-
 body{
     background-color: $color-fondo;
+    font-family: $fuente-texto;
+    --bs-border-color: #{$color-borde};
 }
 
-body::selection{
+::selection{
     background-color: $color-pseudo;
+    color: $letras-media;
+}
+
+main{
+    --titulo: #{$color-claro};
+}
+
+main h1,
+main h2,
+main h3{
+    font-family: $fuente-letra;
+    font-weight: 400;
+    color: var(--titulo);
+    letter-spacing: 0.04em;
+}
+
+main h1::after,
+main h2::after{
+    content: "";
+    display: block;
+    width: 3.5rem;
+    height: 3px;
+    margin: 0.5rem 0 0.75rem;
+    background: repeating-linear-gradient(90deg, $color-pseudo 0 10px, transparent 10px 16px);
+}
+
+.text-center h1::after,
+.text-center h2::after,
+h1.text-center::after,
+h2.text-center::after{
+    margin-inline: auto;
+}
+
+.inicio h1::after{
+    content: none;
 }

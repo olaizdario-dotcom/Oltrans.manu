@@ -3,30 +3,90 @@
   padding: 0%;
   margin: 0%;
   box-sizing: border-box;
-  max-width: 100vw;
-  perspective: 1000px;
 }
 
+html {
+  overflow-x: hidden;
+  scrollbar-color: #1aaf1a #0a0a0a;
+}
+
+img {
+  max-width: 100%;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #1aaf1a;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
 body {
   background-color: #000000;
+  font-family: "Inter", system-ui, sans-serif;
+  --bs-border-color: #4a464b;
 }
 
-body::selection {
+::selection {
   background-color: #1aaf1a;
+  color: #000000;
 }
 
-@keyframes gradientMove {
-  0% {
-    background-position: 0% 50%;
-    color: aliceblue;
+main {
+  --titulo: #ece9ee;
+}
+
+main h1,
+main h2,
+main h3 {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  color: var(--titulo);
+  letter-spacing: 0.04em;
+}
+
+main h1::after,
+main h2::after {
+  content: "";
+  display: block;
+  width: 3.5rem;
+  height: 3px;
+  margin: 0.5rem 0 0.75rem;
+  background: repeating-linear-gradient(90deg, #1aaf1a 0 10px, transparent 10px 16px);
+}
+
+.text-center h1::after,
+.text-center h2::after,
+h1.text-center::after,
+h2.text-center::after {
+  margin-inline: auto;
+}
+
+.inicio h1::after {
+  content: none;
+}
+
+@keyframes carretera {
+  to {
+    background-position: 16px 0;
   }
-  50% {
-    background-position: 100% 50%;
-    color: black;
+}
+@keyframes logoEntrada {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
   }
-  100% {
-    background-position: 0% 50%;
-    color: aliceblue;
+  to {
+    opacity: 1;
+    transform: none;
   }
 }
 header {
@@ -35,6 +95,7 @@ header {
   font-family: "Bebas Neue", sans-serif;
   font-weight: 300;
   font-style: normal;
+  margin-inline: calc(var(--bs-gutter-x) * -0.5);
 }
 header .logo {
   display: flex;
@@ -43,170 +104,215 @@ header .logo {
   align-items: center;
   text-align: center;
   color: #989398;
-  height: 120px;
+  padding: 0.4rem 0;
+  animation: logoEntrada 0.8s ease both;
 }
-header h1 {
+header .marca {
+  display: block;
   font-family: "Cinzel", serif;
   font-optical-sizing: auto;
-  font-weight: 1;
+  font-weight: 400;
   font-style: oblique;
-  font-size: 10px;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  margin: 0.25rem 0 0;
 }
 header img {
-  width: 50px;
+  width: 54px;
+}
+
+header::after {
+  content: "";
+  display: block;
+  height: 3px;
+  background: repeating-linear-gradient(90deg, #989398 0 28px, transparent 28px 44px);
+  opacity: 0.55;
+}
+
+.navbar.navegador {
+  --bs-navbar-color: #989398;
+  --bs-navbar-hover-color: #ece9ee;
+  --bs-navbar-active-color: #ece9ee;
+  --bs-navbar-brand-color: #989398;
+  --bs-navbar-brand-hover-color: #ece9ee;
+  --bs-navbar-toggler-border-color: #989398;
+  padding-block: 0.25rem;
 }
 
 .navegador ul {
   list-style: none;
 }
-.navegador a {
-  font-size: 15px;
-  color: #989398;
+.navegador .nav-link {
+  position: relative;
+  font-size: 18px;
+  letter-spacing: 0.05em;
+  transition: color 0.2s ease;
 }
-.navegador button {
-  background-color: #1aaf1a;
+.navegador .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0.1rem;
+  height: 3px;
+  background: repeating-linear-gradient(90deg, #1aaf1a 0 10px, transparent 10px 16px);
+  background-size: 16px 100%;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+.navegador .nav-link:hover::after,
+.navegador .nav-link:focus-visible::after {
+  transform: scaleX(1);
+  animation: carretera 0.5s linear infinite;
+}
+.navegador .nav-link.active::after {
+  transform: scaleX(1);
 }
 
 main {
   color: #989398;
-  font-family: "Bebas Neue", sans-serif;
+  font-family: "Inter", system-ui, sans-serif;
   font-weight: 400;
   font-style: normal;
   height: auto;
 }
 main p {
-  font-size: 20px;
-}
-
-.main-sobre-nosotros section {
-  color: #989398;
-  align-items: center;
-  text-align: center;
-}
-
-.main-proyectos {
-  font-size: 20px;
-  text-align: center;
+  font-size: 1.05rem;
+  line-height: 1.6;
 }
 
 .main-contacto {
-  height: 550px;
+  min-height: 550px;
 }
 
 footer {
   background-color: #000000;
-  font-family: "Bebas Neue", sans-serif;
-  font-weight: 300;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 400;
   font-style: normal;
   color: #989398;
-  border: 1px solid #b9c1b9;
   text-align: center;
 }
 footer ul li {
   list-style: none;
 }
-
-@media (min-width: 768px) {
-  .articulo4 {
-    height: 300px;
-    text-align: left;
-    border-radius: 10px;
-    background-image: url(../imagenes/fondo.izq.png);
-    background-position: 750px;
-    background-size: cover;
-    color: #000000;
-  }
-  .articulo4 {
-    color: #000000;
-    background-image: url(../imagenes/fondo-dere.png);
-    background-position: 1150px;
-    background-size: cover;
-  }
-  .carusel1 img {
-    width: 500px;
-  }
-  .carusel2 img {
-    height: 200px;
-    width: 150px;
-  }
-}
-@media (min-width: 1024px) {
-  .carusel1 {
-    height: 300px;
-  }
-  .carusel1 img {
-    image-rendering: optimizeQuality;
-  }
-  .articulo3 {
-    height: 300px;
-    text-align: left;
-    border-radius: 10px;
-    background-image: url(../imagenes/fondo.izq.png);
-    background-position: center;
-    background-size: cover;
-    color: #000000;
-  }
-  .articulo4 {
-    color: #000000;
-    height: 300px;
-    background-image: url(../imagenes/fondo-dere.png);
-    background-position: center;
-    background-size: cover;
-  }
-}
-.boton-troll:hover {
-  padding: 15px 30px;
-  font-size: 1.2rem;
-  font-weight: bold;
+footer a {
   color: #989398;
-  background-color: #1aaf1a;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  position: absolute;
-  transition: all 0.2s ease;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+footer a:hover,
+footer a:focus-visible {
+  color: #1aaf1a;
+}
+footer h3 {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-size: 1.4rem;
+  color: #ece9ee;
+  letter-spacing: 0.04em;
+}
+
+footer::before {
+  content: "";
+  display: block;
+  height: 3px;
+  margin-inline: calc(var(--bs-gutter-x) * -1);
+  margin-bottom: 1rem;
+  background: repeating-linear-gradient(90deg, #989398 0 28px, transparent 28px 44px);
+  opacity: 0.55;
+}
+
+.boton-troll {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.boton-troll:hover,
+.boton-troll:focus-visible {
+  transform: scale(1.08);
   box-shadow: 0 4px 15px #1aaf1a;
 }
 
 .boton-troll:active {
-  background-color: #1aaf1a;
-  border: 5px solid;
+  transform: scale(0.97);
 }
 
-.buscado {
-  color: black;
-  background: linear-gradient(270deg, #1aaf1a, #989398, #000000);
-  background-size: 600%;
-  animation: gradientMove 8s ease infinite;
+.btn-outline-success {
+  --bs-btn-color: #1aaf1a;
+  --bs-btn-border-color: #1aaf1a;
+  --bs-btn-border-width: 2px;
+  --bs-btn-hover-color: #000000;
+  --bs-btn-hover-bg: #1aaf1a;
+  --bs-btn-hover-border-color: #1aaf1a;
+  --bs-btn-active-color: #000000;
+  --bs-btn-active-bg: #1aaf1a;
+  --bs-btn-active-border-color: #1aaf1a;
+  --bs-btn-focus-shadow-rgb: 26, 175, 26;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 0.06em;
 }
 
 .inicio {
-  background-image: url(../imagenes/camion.jpg);
+  background-image: url(../imagenes/camion_scania_negro_fondo.jpg);
   background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: fixed;
+  background-position: bottom;
   background-size: cover;
-  height: 450px;
+  min-height: 380px;
+}
+.inicio h1 {
+  display: flex;
+  text-align: center;
+  align-items: end;
+  min-height: 280px;
+  font-size: clamp(1.8rem, 5vw, 3.2rem);
+  color: #ece9ee;
+  text-shadow: 0 2px 10px #000, 0 0 3px #000;
+}
+
+.franja-datos {
+  border-block: 1px solid #4a464b;
+}
+.franja-datos ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0.9rem 1.25rem;
+  list-style: none;
+  padding: 1.1rem 0.5rem;
+}
+.franja-datos li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.35rem;
+  letter-spacing: 0.04em;
+  color: #ece9ee;
+}
+.franja-datos li::before {
+  content: "";
+  flex: none;
+  width: 14px;
+  height: 3px;
+  background-color: #1aaf1a;
 }
 
 .destinos ::marker {
   content: "🚛";
 }
 
-.destinos:hover {
-  transform: translateZ(20px) scale(2);
-  padding: 50px;
-  transition: 0.7s ease-out;
-  text-shadow: 5px 3px 2px #1aaf1a;
+.contenedor-carousel {
+  width: 100%;
+  max-width: 300px;
 }
 
 .carrusel img {
   height: 150px;
+  width: 100%;
+  object-fit: cover;
   border: 1px solid #b9c1b9;
-}
-
-.imagenes img {
-  height: 600px;
 }
 
 .servicio {
@@ -215,73 +321,143 @@ footer ul li {
 
 .nuestros-servicios img {
   height: 360px;
+  max-width: 100%;
+  object-fit: contain;
 }
 
-.mapa img:hover {
-  transition: 2s;
-  border: 3px solid #1aaf1a;
-  height: 400px;
+.mapa img {
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 
 .flechas ::marker {
   content: "➡️";
 }
 
-.articulo3 {
-  transform-style: preserve-3d;
-}
-
-.articulo3 h2 {
-  transform: translateZ(5px);
-}
-
-.articulo3:hover {
-  transform: rotatey(10deg) scale(0.8);
-  transition: 3s;
-  box-shadow: 4px 4px 60px 0px #1aaf1a;
-}
-
+.articulo3,
 .articulo4 {
   transform-style: preserve-3d;
+  transition: 1s;
 }
 
+.articulo3 h2,
 .articulo4 h2 {
   transform: translateZ(5px);
 }
 
-.articulo4:hover {
-  transform: rotatey(-10deg) scale(0.8);
-  transition: 3s;
-  box-shadow: 4px 4px 60px 0px #1aaf1a;
+@media (hover: hover) {
+  .destinos:hover {
+    transform: scale(1.3);
+    transform-origin: left center;
+    transition: 0.4s ease-out;
+    text-shadow: 5px 3px 2px #1aaf1a;
+  }
+  .mapa img:hover {
+    transform: scale(1.04);
+    box-shadow: 0 0 0 3px #1aaf1a;
+  }
+  .articulo3:hover {
+    transform: perspective(1000px) rotateY(10deg) scale(0.8);
+    transition: 0.5s;
+    box-shadow: 4px 4px 60px 0px #1aaf1a;
+  }
+  .articulo4:hover {
+    transform: perspective(1000px) rotateY(-10deg) scale(0.8);
+    transition: 0.5s;
+    box-shadow: 4px 4px 60px 0px #1aaf1a;
+  }
 }
-
 .casilleros {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 14px;
+}
+.casilleros input,
+.casilleros textarea {
+  width: 100%;
+  max-width: 450px;
+  padding: 0.65rem 0.9rem;
+  text-align: center;
+  font-family: inherit;
+  font-size: 1.05rem;
+  color: #ece9ee;
+  background-color: #101010;
+  border: 1px solid #4a464b;
+  border-radius: 8px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.casilleros input::placeholder,
+.casilleros textarea::placeholder {
+  color: #989398;
+  opacity: 1;
+}
+.casilleros input:focus,
+.casilleros textarea:focus {
+  outline: none;
+  border-color: #1aaf1a;
+  box-shadow: 0 0 0 3px rgba(26, 175, 26, 0.3);
 }
 
 .mensaje {
+  text-align: center;
   height: 100px;
+  resize: vertical;
 }
 
-.Comunicate {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  border: 1px solid #b9c1b9;
-}
-
-.carusel1 img {
-  height: 300px;
-  width: 200px;
-}
-
+.carusel1 img,
 .carusel2 img {
-  height: 300px;
-  width: 200px;
+  height: 240px;
+  width: 100%;
+  object-fit: cover;
 }
 
-/*# sourceMappingURL=styles.css.map */
+@media (min-width: 768px) {
+  .inicio {
+    min-height: 450px;
+  }
+  .inicio h1 {
+    align-items: start;
+  }
+  .articulo3, .articulo4 {
+    --titulo: #000000;
+    text-align: left;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: #000000;
+    min-height: 220px;
+  }
+  .articulo3 {
+    background-image: url(../imagenes/fondo-izq.png);
+  }
+  .articulo4 {
+    background-image: url(../imagenes/fondo-dere.png);
+  }
+  .carusel1 img,
+  .carusel2 img {
+    height: 280px;
+  }
+  .footer-info {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+  }
+}
+@media (min-width: 1024px) {
+  .inicio {
+    min-height: 500px;
+    background-position: center;
+  }
+  .inicio h1 {
+    align-items: center;
+  }
+  .articulo3,
+  .articulo4 {
+    min-height: 300px;
+  }
+  .carusel1 img,
+  .carusel2 img {
+    height: 320px;
+  }
+}

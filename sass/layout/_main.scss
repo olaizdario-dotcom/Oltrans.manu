@@ -1,0 +1,18 @@
+@use "../utilities/variables" as *;
+
+main{
+    color: $color-letras;
+    font-family: $fuente-texto;
+    font-weight: 400;
+    font-style: normal;
+    height: auto;
+
+    p{
+        font-size: 1.05rem;
+        line-height: 1.6;
+    }
+}
+
+.main-contacto{
+    min-height: 550px;
+}
