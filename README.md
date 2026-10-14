@@ -2,7 +2,7 @@
 Sitio web desarrollado como parte del curso de **Desarrollo Web en Coderhouse**.
 ---
 ## 🌐 Sitio Desplegado
-👉 Puedes ver el sitio web online aquí: https://olaizdario-dotcom.github.io/Oltrans.manu/
+👉 Puedes ver el sitio web online aquí: https://oltrans.netlify.app/
 
 ## 📋 Descripción del Proyecto
 Este proyecto es un sitio web de 5 secciones diseñado con una metodología Mobile-First. Cuenta con maquetación estructurada, diseño responsivo y personalización visual.
